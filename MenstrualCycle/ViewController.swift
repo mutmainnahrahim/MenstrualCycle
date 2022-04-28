@@ -9,11 +9,36 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var switchYesNo: UISwitch!
+    @IBOutlet weak var labelLastMenstrual: UILabel!
+    @IBOutlet weak var textFilledDay: UITextField!
+    @IBOutlet weak var startMenstrual: UIView!
+    @IBOutlet weak var endMenstrual: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        switchYesNo.isOn = false
+        labelLastMenstrual.isHidden = false
+        textFilledDay.isHidden = true
+        startMenstrual.isHidden = false
+        endMenstrual.isHidden = false
     }
-
-
+   
+    @IBAction func switchChange(_ sender: Any) {
+        if switchYesNo.isOn {
+            labelLastMenstrual.isHidden = true
+            textFilledDay.isHidden = false
+            startMenstrual.isHidden = true
+            endMenstrual.isHidden = true
+        }
+        else {
+            textFilledDay.isHidden = true
+            labelLastMenstrual.isHidden = false
+            startMenstrual.isHidden = false
+            endMenstrual.isHidden = false
+        }
+    }
+    
 }
 
