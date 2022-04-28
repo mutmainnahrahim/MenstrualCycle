@@ -53,7 +53,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.91591566800000002" green="0.72413079290000004" blue="0.76393463890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ge5-ys-FIM">
                                 <rect key="frame" x="29" y="620" width="332" height="34"/>
@@ -92,7 +92,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="2Tp-zX-zqH" kind="presentation" modalPresentationStyle="fullScreen" id="Cvs-GT-e5o"/>
+                                    <action selector="pressStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VkY-7S-z2l"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xAS-iq-dq6">
@@ -153,16 +153,17 @@
                         <outlet property="startMenstrual" destination="ge5-ys-FIM" id="Swv-vh-Rvj"/>
                         <outlet property="switchYesNo" destination="LIv-2e-Fxg" id="xrn-Ld-aPm"/>
                         <outlet property="textFilledDay" destination="FVx-VI-c8h" id="Ond-IY-Bah"/>
+                        <segue destination="2Tp-zX-zqH" kind="presentation" identifier="toCalenderView" modalPresentationStyle="fullScreen" id="uGR-z9-aJA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-158.46153846153845" y="68.957345971563981"/>
         </scene>
-        <!--View Controller-->
+        <!--Calender View-->
         <scene sceneID="av0-JR-xgV">
             <objects>
-                <viewController id="2Tp-zX-zqH" sceneMemberID="viewController">
+                <viewController id="2Tp-zX-zqH" customClass="CalenderView" customModule="MenstrualCycle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VbV-12-ZLT">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,16 +196,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Screen Shot 2022-04-28 at 03.57.23" translatesAutoresizingMaskIntoConstraints="NO" id="3k3-5O-laP">
-                                <rect key="frame" x="99" y="130" width="193" height="59"/>
+                                <rect key="frame" x="99" y="130" width="208" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Day - 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2X-S6-qss">
-                                <rect key="frame" x="162" y="147" width="67" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NWv-Kl-Wmx">
                                 <rect key="frame" x="29" y="598" width="332" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -245,14 +239,25 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.91591566800000002" green="0.72413079290000004" blue="0.76393463890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" Day - 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2X-S6-qss">
+                                <rect key="frame" x="117" y="147" width="172" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fRb-56-XQr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xZ2-1S-rUk"/>
+                    <connections>
+                        <outlet property="dayMenstrualNow" destination="D2X-S6-qss" id="07B-PP-kyI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7JA-vL-g0S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="640" y="69"/>
+            <point key="canvasLocation" x="640" y="68.957345971563981"/>
         </scene>
     </scenes>
     <resources>
