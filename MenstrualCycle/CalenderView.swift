@@ -29,7 +29,7 @@ class CalenderView: UIViewController {
             dayMenstrualNow.text = "kosong"
         }
         else {
-            dayMenstrualNow.text = receivedDateDay
+            dayMenstrualNow.text = "Day - " + receivedDateDay!
         }
         
         if receivedStartMenstrual == currentDate {
@@ -45,18 +45,7 @@ class CalenderView: UIViewController {
         else {
             endMenstrualEST.text = receivedEndMenstrual
         }
-        getTodaysDate()
     }
- /*
-    @IBAction func calenderPick(_ sender: Any) {
-        let datestyle = DateFormatter()
-        datestyle.timeZone = TimeZone(abbreviation: "GMT+7")
-        datestyle.locale = NSLocale.current
-        datestyle.dateFormat = "dd MMMM, yyyy"
-        let date = datestyle.string(from: calender.date)
-        currentDate = date
-    }
-  */
     
     func getTodaysDate() {
         let date = Date()
