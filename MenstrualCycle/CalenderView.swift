@@ -11,6 +11,8 @@ class CalenderView: UIViewController {
 
     @IBOutlet weak var dayMenstrualNow: UILabel!
     @IBOutlet weak var calender: UIDatePicker!
+    @IBOutlet weak var startMenstrualEST: UITextField!
+    @IBOutlet weak var endMenstrualEST: UITextField!
     
     var receivedDateDay: String?
     var currentDate = ""
@@ -19,6 +21,8 @@ class CalenderView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startMenstrualEST.text = receivedStartMenstrual
+        endMenstrualEST.text = receivedEndMenstrual
         // Do any additional setup after loading the view.
         //print(receivedDateDay)
         if receivedDateDay == "" {
@@ -27,6 +31,21 @@ class CalenderView: UIViewController {
         else {
             dayMenstrualNow.text = receivedDateDay
         }
+        
+        if receivedStartMenstrual == currentDate {
+            startMenstrualEST.text = "belum ada"
+        }
+        else {
+            startMenstrualEST.text = receivedStartMenstrual
+        }
+        
+        if receivedEndMenstrual == currentDate {
+            endMenstrualEST.text = "belum ada"
+        }
+        else {
+            endMenstrualEST.text = receivedEndMenstrual
+        }
+        getTodaysDate()
     }
  /*
     @IBAction func calenderPick(_ sender: Any) {
@@ -44,20 +63,9 @@ class CalenderView: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         let today = dateFormatter.string(from: date)
-        
         currentDate = today
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
