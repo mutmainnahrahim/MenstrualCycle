@@ -55,26 +55,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ge5-ys-FIM">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Menstruation Start" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IOW-x2-2hd">
                                 <rect key="frame" x="29" y="620" width="332" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menstruation Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRa-jg-5Ai">
-                                        <rect key="frame" x="8" y="9" width="121" height="17"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" systemColor="separatorColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <datePicker contentMode="right" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Z0V-L2-qzc">
-                                        <rect key="frame" x="198" y="0.0" width="134" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.91131859159999995" green="0.29711578090000001" blue="0.23005514690000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <locale key="locale" localeIdentifier="id_ID"/>
-                                    </datePicker>
-                                </subviews>
                                 <color key="backgroundColor" red="0.91591566800000002" green="0.72413079290000004" blue="0.76393463890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="This Apps will help you to tracker your menstruation cycle. Before you start, let me know what happens today" translatesAutoresizingMaskIntoConstraints="NO" id="Pku-n8-RdL">
                                 <rect key="frame" x="21" y="96" width="349" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -95,26 +82,6 @@
                                     <action selector="pressStart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VkY-7S-z2l"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xAS-iq-dq6">
-                                <rect key="frame" x="29" y="662" width="332" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menstruation End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMc-T4-MLK">
-                                        <rect key="frame" x="8" y="9" width="114" height="17"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" systemColor="separatorColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" id="D6f-WQ-L8V">
-                                        <rect key="frame" x="197" y="0.0" width="135" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.91131859159999995" green="0.29711578090000001" blue="0.23005514690000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <locale key="locale" localeIdentifier="id_ID"/>
-                                    </datePicker>
-                                </subviews>
-                                <color key="backgroundColor" red="0.91591566800000002" green="0.72413079290000004" blue="0.76393463890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Your Latest Menstruation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWK-sS-h7L">
                                 <rect key="frame" x="85" y="585" width="221" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -143,14 +110,35 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.91591566800000002" green="0.72413079290000004" blue="0.76393463890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Menstruation End" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8HN-1Y-6tL">
+                                <rect key="frame" x="29" y="662" width="332" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.91591566800000002" green="0.72413079290000004" blue="0.76393463890000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menstruation Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1T-zg-2hW">
+                                <rect key="frame" x="204" y="627" width="142" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menstruation End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gen-On-Br4">
+                                <rect key="frame" x="208" y="669" width="134" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="endMenstrual" destination="xAS-iq-dq6" id="9Je-Za-wcY"/>
+                        <outlet property="endMenstrual" destination="8HN-1Y-6tL" id="1vj-BQ-Kae"/>
                         <outlet property="labelLastMenstrual" destination="lWK-sS-h7L" id="uO1-vD-bE5"/>
-                        <outlet property="startMenstrual" destination="ge5-ys-FIM" id="Swv-vh-Rvj"/>
+                        <outlet property="startMenstrual" destination="IOW-x2-2hd" id="YXR-yU-xil"/>
                         <outlet property="switchYesNo" destination="LIv-2e-Fxg" id="xrn-Ld-aPm"/>
                         <outlet property="textFilledDay" destination="FVx-VI-c8h" id="Ond-IY-Bah"/>
                         <segue destination="2Tp-zX-zqH" kind="presentation" identifier="toCalenderView" modalPresentationStyle="fullScreen" id="uGR-z9-aJA"/>
@@ -169,7 +157,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="April 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctP-0C-vHX">
-                                <rect key="frame" x="156" y="86" width="79" height="21"/>
+                                <rect key="frame" x="163" y="86" width="79" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -252,6 +240,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xZ2-1S-rUk"/>
                     <connections>
+                        <outlet property="calender" destination="GDe-99-0qS" id="nOZ-tJ-bUV"/>
                         <outlet property="dayMenstrualNow" destination="D2X-S6-qss" id="07B-PP-kyI"/>
                     </connections>
                 </viewController>
@@ -265,6 +254,9 @@
         <image name="Screen Shot 2022-04-28 at 03.57.23" width="774" height="220"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
