@@ -38,6 +38,8 @@ class ViewController: UIViewController {
         endMenstrual.text =
         formatter2.string(from: date2)
         
+        
+        
         let datePicker1 = UIDatePicker()
         let datePicker2 = UIDatePicker()
         datePicker1.datePickerMode = .date
