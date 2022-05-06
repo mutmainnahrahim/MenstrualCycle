@@ -8,13 +8,12 @@
 import UIKit
 
 class CalenderView: UIViewController {
-    var receivedDateDay: String?
     @IBOutlet weak var dayMenstrualNow: UILabel!
     @IBOutlet weak var calender: UIDatePicker!
     @IBOutlet weak var startMenstrualEST: UITextField!
     @IBOutlet weak var endMenstrualEST: UITextField!
     
-    //var receivedDateDay: String?
+    var receivedDateDay: Int?
     var currentDate = ""
     var receivedStartMenstrual: Date?
     var receivedEndMenstrual: Date?
@@ -25,12 +24,13 @@ class CalenderView: UIViewController {
         // Do any additional setup after loading the view.
         //print(receivedDateDay)
     
-        if receivedDateDay == "" {
+        if receivedDateDay == nil {
             dayMenstrualNow.text = "kosong"
         }
         else {
-            dayMenstrualNow.text = "Day - " + receivedDateDay!
+            dayMenstrualNow.text = "Day - " + String(receivedDateDay!)
         }
+     
 
         if receivedStartMenstrual == nil {
             startMenstrualEST.text = "belum ada"

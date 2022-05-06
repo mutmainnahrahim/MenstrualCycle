@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var startMenstrual: UITextField!
     @IBOutlet weak var endMenstrual: UITextField!
     
-    var dayValue: String?
+    var dayValue: Int?
     var startValue: Date?
     var endValue: Date?
     var startValueSend : Date?
@@ -65,7 +65,6 @@ class ViewController: UIViewController {
         let dateFormatter1 = DateFormatter()
         dateFormatter1.dateFormat = "dd MMM yyyy"
         startValue = tomorrow
-        //print(dateFormatter1.string(from: tomorrow))
     }
     
     @objc func datePickerValueChanged2(sender: UIDatePicker) {
@@ -82,8 +81,6 @@ class ViewController: UIViewController {
         let dateFormatter0 = DateFormatter()
         dateFormatter0.dateFormat = "dd MMM yyyy"
         endValue = tomorrow0
-        
-        //print(dateFormatter1.string(from: tomorrow))
     }
    
     @IBAction func switchChange(_ sender: Any) {
@@ -101,8 +98,34 @@ class ViewController: UIViewController {
         }
     }
     
+    func showDoubleAlert() {
+        let alert = UIAlertController(title: "Day Value", message: "Day Value must be a number", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: {action in print("tapped dismiss")}))
+        present(alert, animated: true)
+        
+    }
+    
+    func checkInput() -> Bool {
+        let inputValue = textFilledDay.text
+        if (inputValue!) != nil && (inputValue!) != "" {
+            if Int(inputValue!) == nil {
+                showDoubleAlert()
+                return false
+            }
+        }
+        return false
+
+    }
+    
     @IBAction func pressStart(_ sender: Any) {
-        dayValue = textFilledDay.text
+        //dayValue = textFilledDay.text
+        if checkInput() {
+            self.dismiss(animated: true) {
+                NotificationCenter.default.post(name: NSNotification.Name("updateViewMain"), object: nil, userInfo: nil)
+            }
+            
+        }
+        
         startValueSend = startValue
         endValueSend = endValue
         performSegue(withIdentifier: "toCalenderView", sender: nil)
@@ -110,22 +133,10 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextPage = segue.destination as? CalenderView
-        nextPage?.receivedDateDay = dayValue
+        nextPage?.receivedDateDay = Int(textFilledDay.text!)
         nextPage?.receivedStartMenstrual = startValueSend
         nextPage?.receivedEndMenstrual = endValueSend
     }
     
 }
-
-/*
-extension Date {
-    var dayAfter: Date {
-        return datePicker1.date(byAdding: .day, value: 1, to: self)!
-    }
-
-    var dayBefore: Date {
-        return Calendar.current.date(byAdding: .day, value: -1, to: self)!
-    }
-}
- */
 
