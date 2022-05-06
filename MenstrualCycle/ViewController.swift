@@ -16,8 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var endMenstrual: UITextField!
     
     var dayValue: String?
-    var startValue: String?
-    var endValue: String?
+    var startValue: Date?
+    var endValue: Date?
+    var startValueSend : Date?
+    var endValueSend : Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +40,6 @@ class ViewController: UIViewController {
         endMenstrual.text =
         formatter2.string(from: date2)
         
-        
-        
         let datePicker1 = UIDatePicker()
         let datePicker2 = UIDatePicker()
         datePicker1.datePickerMode = .date
@@ -48,6 +48,7 @@ class ViewController: UIViewController {
         datePicker2.addTarget(self, action: #selector(datePickerValueChanged2(sender:)), for:UIControl.Event.valueChanged)
         startMenstrual.inputView = datePicker1
         endMenstrual.inputView = datePicker2
+
         
     }
                              
@@ -56,6 +57,15 @@ class ViewController: UIViewController {
         formatter.dateFormat = "dd MMM YYYY"
         startMenstrual.text =
         formatter.string(from: sender.date)
+        let getDate = sender.date
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(secondsFromGMT: +0)!
+        let midnight = calendar.startOfDay(for: getDate)
+        let tomorrow = calendar.date(byAdding: .day, value: 28, to: midnight)!
+        let dateFormatter1 = DateFormatter()
+        dateFormatter1.dateFormat = "dd MMM yyyy"
+        startValue = tomorrow
+        //print(dateFormatter1.string(from: tomorrow))
     }
     
     @objc func datePickerValueChanged2(sender: UIDatePicker) {
@@ -63,6 +73,17 @@ class ViewController: UIViewController {
         formatter.dateFormat = "dd MMM YYYY"
         endMenstrual.text =
         formatter.string(from: sender.date)
+        
+        let getDate0 = sender.date
+        var calendar0 = Calendar.current
+        calendar0.timeZone = TimeZone(secondsFromGMT: +0)!
+        let midnight0 = calendar0.startOfDay(for: getDate0)
+        let tomorrow0 = calendar0.date(byAdding: .day, value: 28, to: midnight0)!
+        let dateFormatter0 = DateFormatter()
+        dateFormatter0.dateFormat = "dd MMM yyyy"
+        endValue = tomorrow0
+        
+        //print(dateFormatter1.string(from: tomorrow))
     }
    
     @IBAction func switchChange(_ sender: Any) {
@@ -82,17 +103,29 @@ class ViewController: UIViewController {
     
     @IBAction func pressStart(_ sender: Any) {
         dayValue = textFilledDay.text
-        startValue = startMenstrual.text
-        endValue = endMenstrual.text
+        startValueSend = startValue
+        endValueSend = endValue
         performSegue(withIdentifier: "toCalenderView", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextPage = segue.destination as? CalenderView
         nextPage?.receivedDateDay = dayValue
-        nextPage?.receivedStartMenstrual = startValue
-        nextPage?.receivedEndMenstrual = endValue
+        nextPage?.receivedStartMenstrual = startValueSend
+        nextPage?.receivedEndMenstrual = endValueSend
     }
     
 }
+
+/*
+extension Date {
+    var dayAfter: Date {
+        return datePicker1.date(byAdding: .day, value: 1, to: self)!
+    }
+
+    var dayBefore: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: self)!
+    }
+}
+ */
 
