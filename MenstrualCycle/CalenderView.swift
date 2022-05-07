@@ -25,7 +25,14 @@ class CalenderView: UIViewController {
         //print(receivedDateDay)
     
         if receivedDateDay == nil {
-            dayMenstrualNow.text = "kosong"
+            //dayMenstrualNow.text = "kosong"
+            let daysBetween = daysBetween(start: Date(), end: receivedStartMenstrual!)
+            if daysBetween < 0 {
+                dayMenstrualNow.text = String(-daysBetween) + " Days Late"
+            }
+            else {
+                dayMenstrualNow.text = String(daysBetween) + " Days Left"
+            }
         }
         else {
             dayMenstrualNow.text = "Day - " + String(receivedDateDay!)
@@ -33,7 +40,16 @@ class CalenderView: UIViewController {
      
 
         if receivedStartMenstrual == nil {
-            startMenstrualEST.text = "belum ada"
+            //startMenstrualEST.text = "belum ada"
+            var calendar = Calendar.current
+            // Use the following line if you want midnight UTC instead of local time
+            calendar.timeZone = TimeZone(secondsFromGMT: +0)!
+            let today1 = Date()
+            let midnight = calendar.startOfDay(for: today1)
+            let tomorrow = calendar.date(byAdding: .day, value: -receivedDateDay!, to: midnight)!
+            let dateFormatter1 = DateFormatter()
+            dateFormatter1.dateFormat = "dd MMM yyyy"
+            startMenstrualEST.text = dateFormatter1.string(from: tomorrow)
         }
         else {
             let formatter1 = DateFormatter()
@@ -42,7 +58,15 @@ class CalenderView: UIViewController {
         }
         
         if receivedEndMenstrual == nil {
-            endMenstrualEST.text = "belum ada"
+            var calendar = Calendar.current
+            // Use the following line if you want midnight UTC instead of local time
+            calendar.timeZone = TimeZone(secondsFromGMT: +0)!
+            let today1 = Date()
+            let midnight = calendar.startOfDay(for: today1)
+            let tomorrow = calendar.date(byAdding: .day, value: 7-receivedDateDay!, to: midnight)!
+            let dateFormatter1 = DateFormatter()
+            dateFormatter1.dateFormat = "dd MMM yyyy"
+            endMenstrualEST.text = dateFormatter1.string(from: tomorrow)
         }
         else {
             let formatter2 = DateFormatter()
@@ -78,7 +102,11 @@ class CalenderView: UIViewController {
     }
    */
     
-
+    func daysBetween(start: Date, end: Date) -> Int {
+           return Calendar.current.dateComponents([.day], from: start, to: end).day!
+       }
     
 
 }
+
+
