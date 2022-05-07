@@ -20,9 +20,6 @@ class CalenderView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //getTodaysDate()
-        // Do any additional setup after loading the view.
-        //print(receivedDateDay)
     
         if receivedDateDay == nil {
             //dayMenstrualNow.text = "kosong"
@@ -59,7 +56,6 @@ class CalenderView: UIViewController {
         
         if receivedEndMenstrual == nil {
             var calendar = Calendar.current
-            // Use the following line if you want midnight UTC instead of local time
             calendar.timeZone = TimeZone(secondsFromGMT: +0)!
             let today1 = Date()
             let midnight = calendar.startOfDay(for: today1)
@@ -76,31 +72,7 @@ class CalenderView: UIViewController {
          
     }
     
-    func getTodaysDate() {
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd MMM yyyy"
-        let today = dateFormatter.string(from: date)
-        currentDate = today
-        
-        //var calendar = Calendar.current
-        // Use the following line if you want midnight UTC instead of local time
-        //calendar.timeZone = TimeZone(secondsFromGMT: +0)!
-        //let today1 = Date()
-        //let midnight = calendar.startOfDay(for: today1)
-        //let tomorrow = calendar.date(byAdding: .day, value: 1, to: midnight)!
-        //let dateFormatter1 = DateFormatter()
-        //dateFormatter1.dateFormat = "dd MMM yyyy"
-        //print(dateFormatter1.string(from: tomorrow))
-    }
-   /*
-    func getStartDate() {
-        let dateFormatterStart = DateFormatter()
-        dateFormatterStart.dateFormat = "dd MMM yyy"
-        let startEST = dateFormatterStart.string(from: receivedStartMenstrual)
 
-    }
-   */
     
     func daysBetween(start: Date, end: Date) -> Int {
            return Calendar.current.dateComponents([.day], from: start, to: end).day!
